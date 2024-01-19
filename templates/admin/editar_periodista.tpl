@@ -1,6 +1,6 @@
 {include file='header.tpl'}
 
-<div class="container mt-4">
+<div class="container mt-4 vh-100">
     <h1>{if $periodista.id_periodista}Editar{else}Crear{/if} Periodista</h1>
 
     <form action="admin.php?action={if $periodista.id_periodista}update_periodista{else}store_periodista{/if}"
