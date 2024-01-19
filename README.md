@@ -6,10 +6,10 @@ Además en el menú superior están 2 vinculos, uno para periodistas y otro para
 
 ---
 
-##Página Periodistas
+## Página Periodistas
 En la página periodistas puedes visualizar la cantidad de periodistas almacenados en la base de datos, puedes editar los nombre como también eliminarlos.
+## Página Noticias
 
-##Página Noticias
 En la página de noticias puedes visualizar todas las noticias creadas y ver el periodista que las creó. Además de poder editarlas, crear nuevas, como también eliminarlas.
 
 ---
