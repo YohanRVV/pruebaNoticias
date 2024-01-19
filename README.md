@@ -6,6 +6,24 @@ Además en el menú superior están 2 vinculos, uno para periodistas y otro para
 
 ---
 
+## Filtrado de Noticias por Periodista
+
+En la página principal se ha integrado una funcionalidad que permite a los usuarios filtrar las noticias por periodista. Este filtro facilita la visualización de las publicaciones de un periodista específico, incluyendo aquellos que ya no están activos pero tienen noticias asociadas.
+
+### Características:
+
+- **Selector Dinámico de Periodistas:** Presenta una lista de periodistas que han contribuido con noticias, independientemente de su estado activo o inactivo.
+
+- **Actualización Instantánea:** Al seleccionar un periodista, la lista de noticias se actualiza al instante para mostrar solo las correspondientes al periodista elegido.
+
+- **Preservación de la Integridad de Datos:** Incluso los periodistas inactivos se muestran en el filtro si tienen noticias asociadas, asegurando así la integridad histórica del contenido.
+
+### Uso:
+
+Simplemente selecciona un periodista del menú desplegable en la página principal para filtrar las noticias. Elige 'Todos los periodistas' para resetear el filtro y mostrar todas las noticias.
+
+---
+
 ## Página Periodistas
 En la página periodistas puedes visualizar la cantidad de periodistas almacenados en la base de datos, puedes editar los nombre como también eliminarlos.
 ## Página Noticias
