@@ -59,7 +59,7 @@ switch ($action) {
         $smarty->assign('noticia', $noticia);
 
         // Obtener periodistas para el dropdown
-        $result = $db->query('SELECT * FROM periodistas');
+        $result = $db->query('SELECT * FROM periodistas WHERE activo = TRUE');
         $periodistas = $result->fetch_all(MYSQLI_ASSOC);
         $smarty->assign('periodistas', $periodistas);
 
