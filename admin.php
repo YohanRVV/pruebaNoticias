@@ -8,7 +8,7 @@ $smarty->template_dir = 'templates';
 $smarty->compile_dir = 'templates_c';
 $smarty->cache_dir = 'cache';
 $smarty->config_dir = 'configs';
-$action = isset($_GET['action']) ? $_GET['action'] : 'dashboard';
+$action = isset($_GET['action']) ? $_GET['action'] : 'admin/home.tpl';
 
 switch ($action) {
     case 'view_home':
@@ -55,7 +55,6 @@ switch ($action) {
         break;
 
     case 'create_noticia':
-        // Asegúrate de que 'noticia' está definido aunque sea con valores vacíos
         $noticia = ["id_noticia" => "", "titulo" => "", "contenido" => "", "id_periodista" => ""];
         $smarty->assign('noticia', $noticia);
 
@@ -100,7 +99,6 @@ switch ($action) {
         $result = $db->query($query);
 
         if (!$result) {
-            // Si hay un error al insertar en la base de datos, manejar aquí
             echo "Error al guardar la noticia: " . $db->error;
             exit();
         }
@@ -138,8 +136,8 @@ switch ($action) {
 
     case 'update_periodista':
         $id = isset($_POST['id_periodista']) ? intval($_POST['id_periodista']) : 0;
-        $nombre = $db->real_escape_string($_POST['nombre']); // Importante: Sanitizar y validar los inputs
-        $apellido = $db->real_escape_string($_POST['apellido']); // Importante: Sanitizar y validar los inputs
+        $nombre = $db->real_escape_string($_POST['nombre']);
+        $apellido = $db->real_escape_string($_POST['apellido']);
         if ($id > 0) {
             $db->query("UPDATE periodistas SET nombre = '$nombre', apellido = '$apellido', activo = TRUE WHERE id_periodista = $id");
         }
@@ -156,8 +154,8 @@ switch ($action) {
         break;
 
     case 'store_periodista':
-        $nombre = $db->real_escape_string($_POST['nombre']); // Importante: Sanitizar y validar los inputs
-        $apellido = $db->real_escape_string($_POST['apellido']); // Importante: Sanitizar y validar los inputs
+        $nombre = $db->real_escape_string($_POST['nombre']);
+        $apellido = $db->real_escape_string($_POST['apellido']);
         $db->query("INSERT INTO periodistas (nombre, apellido, activo) VALUES ('$nombre', '$apellido', TRUE)");
         header('Location: admin.php?action=view_periodistas');
         exit();
@@ -182,6 +180,12 @@ switch ($action) {
                 exit();
             }
         }
+        header('Location: admin.php?action=view_periodistas');
+        exit();
+        break;
+
+
+    default:
         header('Location: admin.php?action=view_home');
         exit();
         break;
