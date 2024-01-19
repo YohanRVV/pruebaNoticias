@@ -15,8 +15,19 @@ switch ($action) {
         $result = $db->query('SELECT noticias.*, periodistas.nombre AS periodista_nombre, periodistas.apellido AS periodista_apellido, DATE_FORMAT(noticias.fecha_publicacion, "%Y-%m-%d") AS fecha_publicacion_sin_hora FROM noticias JOIN periodistas ON noticias.id_periodista = periodistas.id_periodista');
 
         $noticias = $result->fetch_all(MYSQLI_ASSOC);
-
         $smarty->assign('noticias', $noticias);
+
+        // Obtener periodistas
+        $resultPeriodistas = $db->query('
+        SELECT periodistas.* 
+        FROM periodistas
+        JOIN noticias ON periodistas.id_periodista = noticias.id_periodista
+        GROUP BY periodistas.id_periodista
+    ');
+        $periodistas = $resultPeriodistas->fetch_all(MYSQLI_ASSOC);
+        $smarty->assign('periodistas', $periodistas);
+
+
         $smarty->display('admin/home.tpl');
         break;
 
