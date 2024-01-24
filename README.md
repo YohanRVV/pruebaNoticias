@@ -52,6 +52,9 @@ En la página de noticias puedes visualizar todas las noticias creadas y ver el 
 
 ## Instalación
 
+- Versión PHP: 8.3.1
+- Versión MySQL: 8.0.35
+
 1. Clona este repositorio en tu máquina local.
 2. Configura un servidor web (por ejemplo, Apache) y asegúrate de que PHP esté instalado.
 3. Crea una base de datos MySQL y configura las credenciales en `includes/db.php`.
